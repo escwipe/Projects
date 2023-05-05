@@ -8,17 +8,18 @@ async function fetchMetals() {
             throw new Error("Something went wrong, while fatching data!")
         }
         const data = await response.json();
+        // Set current timestamp
+        document.getElementById("date").textContent = new Date().toISOString().slice(0, 19).replace('T', ' ');
         METALS.forEach(name => {
             const metal = data.find(metal => metal[name]);
             if (metal) {
                 const value = metal[name];
-                document.getElementById(name).innerHTML = `$${value} <font>per toz</font>`;
+                document.getElementById(name).innerHTML = `${value} <font>per toz</font>`;
             }
-            document.getElementById("date").innerHTML = new Date().toISOString().slice(0, 19).replace('T', ' ');
         });
     }
     catch (error) {
-        alert(error);
+        console.error(error);
     }
 }
 

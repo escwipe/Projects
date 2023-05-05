@@ -1,0 +1,2 @@
+# Personal Portfolio
+Welcome to my portfolio! This repository contains a collection of the projects that I have worked on. Each project has its own folder and README.md file that explains what the project is about and how it works.

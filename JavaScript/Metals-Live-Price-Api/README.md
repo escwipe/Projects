@@ -1,6 +1,9 @@
 # Metals Price Overview
 This is a simple web application that fetches the current market prices of four precious metals, i.e., Gold, Silver, Platinum, and Palladium, from the Metals Live API (http://api.metals.live/v1/spot).
 
+## Frontend
+<img src="https://i.imgur.com/fnUO9UM_d.webp?maxwidth=760&fidelity=grand">
+
 ## Stack
 * JavaScript
 * HTML

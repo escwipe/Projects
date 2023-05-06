@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- To Do List -->
+    <div id="todo" class="todo">
+        <h1>Todo App</h1>
+        <div class="task">
+            <!-- Task Input -->
+            <input type="text" placeholder="Add your new todo">
+            <button id="new">&#43;</button>
+        </div>
+        <!-- Task Error -->
+        <p class="error"></p>
+        <!-- Task List -->
+        <ul class="task-list">
+            <li>
+                Create a new portfolio
+                <button class="trash">&#xd7;</button>
+            </li>
+            <li>
+                Integrate software with API
+                <button class="trash">&#xd7;</button>
+            </li>
+            <li>
+                Learn React
+                <button class="trash">&#xd7;</button>
+            </li>
+            <li>
+                Implement ASP.NET Identity
+                <button class="trash">&#xd7;</button>
+            </li>
+        </ul>
+        <div class="bar">
+            <!-- Status -->
+            <p class="status">You have a 4 pending task(s)</p>
+            <button id="clear">Clear All</button>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="script.js"></script>
+</footer>
+</html>

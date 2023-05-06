@@ -1,0 +1,129 @@
+* {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #4a00e0;
+}
+
+.todo {
+    display: flex;
+    width: 370px;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 20px 25px;
+    font-size: 1.2rem;
+    /* Vertical Center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo .error {
+    display: none;
+    color: red;
+    font-size: 1rem;
+}
+
+.todo .task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.todo .task .input {
+    flex: 1;
+}
+
+.todo .task input {
+    padding: 12px 12px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid rgb(206, 206, 206);
+    flex: 1;
+}
+
+.todo .task button {
+    background-color: rgb(150, 0, 150);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0 12px 5px 12px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.todo .task button:hover {
+    background-color: rgba(173, 0, 173, 0.521);
+}
+
+.todo .task-list {
+    list-style: none;
+}
+
+.todo .task-list li {
+    background-color: rgb(240, 240, 240);
+    padding: 12px 10px;
+    font-size: 1rem;
+    position: relative;
+}
+
+.todo .task-list li .trash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 2rem;
+    padding: 0 12px 5px 12px;
+    outline: none;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.todo .task-list li .trash:hover {
+    background-color: rgba(255, 0, 0, 0.521);
+}
+
+.todo .task-list li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.todo .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo .bar p {
+    font-size: 1rem;
+}
+
+.todo .bar button {
+    background-color: rgb(150, 0, 150);
+    outline: none;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    transition: background-color 0.5s;
+    font-size: 1rem;
+}
+
+.todo .bar button:hover {
+    background-color: rgba(173, 0, 173, 0.521);
+    cursor: pointer;
+}
+
+.todo .bar {
+    display: flex;
+}

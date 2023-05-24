@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.Extensions.Configuration
+@using NetInformatika.Views.Models;
+
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <h4 class="text-center mb-3">Welcome, @User!.Identity!.Name</h4>
+            <div class="container">
+                <div class="mb-3">
+                    <label class="form-label">Start Location</label>
+                    <input id="startLocation" type="text" class="form-control" placeholder="Start Location">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Destination Location</label>
+                    <input id="destinationLocation" type="text" class="form-control" placeholder="Destination Location">
+                </div>
+                <div class="mb-3 actions">
+                    <button id="playButton" class="btn btn-primary" onclick="playRoute()">Start Tracking</button>
+                    <a href="trips" class="btn btn-success">Finished Trips History</a>
+                    <a href="logout" class="btn btn-secondary">Logout</a>
+                </div>
+                <div class="mb-3">
+                    <p id="startTime"></p>
+                </div>
+                <div class="mb-3">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=@Configuration["GoogleMap:Key"]&libraries=places&callback=initMap"></script>
+<script src="~/js/map.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

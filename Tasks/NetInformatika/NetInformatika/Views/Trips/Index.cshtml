@@ -1,0 +1,37 @@
+﻿@model IEnumerable<NetInformatika.Data.Tables.Trip>
+@{
+    ViewData["Title"] = "Trips";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <h2>Trips</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Start Location</th>
+                        <th>Destination Location</th>
+                        <th>Started On</th>
+                        <th>Finished On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.StartLocation</td>
+                                <td>@item.DestinationLocation</td>
+                                <td>@item.StartedOn</td>
+                                <td>@item.FinishedOn</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <a href="/">Back to main page</a>
+        </div>
+    </div>
+</div>

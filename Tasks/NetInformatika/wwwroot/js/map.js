@@ -89,38 +89,40 @@ function playRoute() {
         return;
     }
 
-    // disable fields
+    // Disable fields
     document.getElementById("startLocation").disabled = true;
     document.getElementById("destinationLocation").disabled = true;
 
-    // start date
-    startedOn = new Date().toISOString().slice(0, 19).replace('T', ' ');
-    document.getElementById("startTime").innerHTML = "<b>Started on:</b> " + startedOn;
-
+    // Get start and destination positions
     var start = startMarker.getPosition();
     var destination = destinationMarker.getPosition();
 
-    var distance = google.maps.geometry.spherical.computeDistanceBetween(start, destination);
-    var durationInSeconds = distance / 50; // Assuming an average speed of 50 meters per second
+    // Start date
+    startedOn = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    document.getElementById("startTime").innerHTML = "<b>Started on:</b> " + startedOn;
 
-    var step = 0;
+    var distanceThreshold = 50; // Adjust this value as needed (in meters)
+
     var interval = setInterval(function () {
+        // Get current position
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            startMarker.setPosition(currentPosition);
+            map.panTo(currentPosition);
 
-        // Destination Reached!
-        if (step >= durationInSeconds) {
-            clearInterval(interval);
-            window.alert('Destination reached!');
-            createTrip();
-            return;
-        }
+            var distance = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, destination);
 
-        var fraction = step / durationInSeconds;
-        var newPosition = google.maps.geometry.spherical.interpolate(start, destination, fraction);
-        startMarker.setPosition(newPosition);
-        map.panTo(newPosition);
-
-        step++;
-    }, 1000); // Update position every second
+            // Destination Reached!
+            if (distance <= distanceThreshold) {
+                clearInterval(interval);
+                window.alert('Destination reached!');
+                createTrip();
+                return;
+            }
+        }, function (error) {
+            console.error('Error getting current position:', error);
+        });
+    }, 1000); // Check position every second
 }
 
 function createTrip() {

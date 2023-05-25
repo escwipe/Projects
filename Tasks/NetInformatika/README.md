@@ -34,12 +34,3 @@ POST /login
 POST /register
 POST /logout
 ```
-
-### Images
-![Image](https://i.ibb.co/82hbpG7/Login.png)
-![Image](https://i.ibb.co/QYC7hGr/Register.png)
-![Image](https://i.ibb.co/NLYrs2f/Main.png)
-![Image](https://i.ibb.co/nPC6Zck/Main2.png)
-![Image](https://i.ibb.co/zZgj8Dq/Main3.png)
-![Image](https://i.ibb.co/z5mwnS5/Reached.png)
-![Image](https://i.ibb.co/hybwxsH/Trips.png)
